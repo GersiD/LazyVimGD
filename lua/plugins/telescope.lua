@@ -15,6 +15,30 @@ return {
     },
     { "<leader>/", false },
     { "<leader>ff", false },
+    { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Find Keymaps" },
+    {
+      "<leader>r",
+      '<cmd>lua require("telescope.builtin").commands(require("telescope.themes").get_ivy()) <cr>',
+      desc = "Find Commands",
+    },
+
+    { "<leader>fv", '<cmd>lua require("telescope.builtin").vim_options()<cr>', desc = "Find vim opts" },
+    {
+      "<leader>ff",
+      '<cmd>lua require("telescope.builtin").find_files({ hidden = true, no_ignore = true })<cr>',
+      desc = "Find all files",
+    },
+
+    { "n", "<leader>fH", "<cmd>Telescope highlights<cr>", desc = "Find Highlights" },
+    { "n", "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find Help" },
+    {
+      "<leader>fw",
+      '<cmd>lua require("telescope.builtin").live_grep({additional_args = function(args)return vim.list_extend(args, { "--hidden", "--no-ignore" })end,})<cr>',
+      desc = "Find words",
+    },
+
+    { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
+    { "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current_buffer_fuzzy_find" },
   },
   dependencies = {
     {
