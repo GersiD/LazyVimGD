@@ -18,8 +18,8 @@ return {
         end
         return msg
       end,
-      icon = " LSP:",
-      color = { fg = "#ffffff", gui = "bold" },
+      -- icon = " LSP:",
+      -- color = { fg = "#ffffff", gui = "bold" },
     })
   end,
 }
