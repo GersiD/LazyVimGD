@@ -3,8 +3,8 @@
 -- Add any additional keymaps here
 vim.api.nvim_set_keymap("n", "<A-j>", "15j", {})
 vim.api.nvim_set_keymap("n", "<A-k>", "15k", {})
-vim.api.nvim_set_keymap("n", "<TAB>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev buffer" })
-vim.api.nvim_set_keymap("n", "<S-TAB>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next buffer" })
+vim.api.nvim_set_keymap("n", "<TAB>", "<cmd>BufferLineCycleNext<cr>", { desc = "Prev buffer" })
+vim.api.nvim_set_keymap("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Next buffer" })
 vim.api.nvim_set_keymap(
   "n",
   "<C-f>",
@@ -43,3 +43,4 @@ vim.api.nvim_set_keymap(
   { desc = "Find words" }
 )
 vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find Buffers" })
+vim.api.nvim_set_keymap("n", "<leader>e", "<cmd>Neotree toggle<cr>", { desc = "Neotree" })
