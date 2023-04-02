@@ -12,7 +12,6 @@ return {
     local cmp = require("cmp")
     return {
       completion = {
-
         completeopt = "menu,menuone,noinsert",
       },
       snippet = {
