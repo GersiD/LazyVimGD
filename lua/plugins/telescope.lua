@@ -29,8 +29,8 @@ return {
       desc = "Find all files",
     },
 
-    { "n", "<leader>fH", "<cmd>Telescope highlights<cr>", desc = "Find Highlights" },
-    { "n", "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find Help" },
+    { "<leader>fH", "<cmd>Telescope highlights<cr>", desc = "Find Highlights" },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find Help" },
     {
       "<leader>fw",
       '<cmd>lua require("telescope.builtin").live_grep({additional_args = function(args)return vim.list_extend(args, { "--hidden", "--no-ignore" })end,})<cr>',
@@ -69,6 +69,9 @@ return {
           i = {
             ["<c-j>"] = require("telescope.actions").move_selection_next,
             ["<c-k>"] = require("telescope.actions").move_selection_previous,
+          },
+          n = {
+            ["q"] = require("telescope.actions").close,
           },
         },
         preview = {
