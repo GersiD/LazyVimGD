@@ -24,3 +24,5 @@ vim.g.loaded_perl_provider = 0
 
 vim.opt.timeoutlen = 300
 vim.opt.updatetime = 1000
+
+vim.opt.conceallevel = 0
