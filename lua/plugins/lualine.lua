@@ -13,7 +13,7 @@ return {
           if ind == 1 then
             msg = client.name
           else
-            msg = msg .. ", " .. client.name
+            msg = msg .. " | " .. client.name
           end
         end
         return msg
