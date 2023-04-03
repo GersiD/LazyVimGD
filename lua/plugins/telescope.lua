@@ -38,7 +38,6 @@ return {
     },
 
     { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Buffers" },
-    { "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Current_buffer_fuzzy_find" },
   },
   dependencies = {
     {
