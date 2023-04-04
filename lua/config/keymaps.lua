@@ -12,3 +12,23 @@ vim.keymap.set("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { d
 
 vim.api.nvim_set_keymap("v", "<leader>/", "gc", { desc = "Comment Selection" })
 vim.api.nvim_set_keymap("n", "<leader>/", "Vgc", { desc = "Comment Line" })
+vim.api.nvim_set_keymap("n", "q", ":q!<cr>", { desc = "Quit" })
+
+-- LSP keymaps
+vim.keymap.del("n", "<leader>l", {})
+vim.keymap.set("n", "<leader>la", function()
+  local curr_row = vim.api.nvim_win_get_cursor(0)[1]
+  vim.lsp.buf.code_action({
+    ["range"] = {
+      ["start"] = { curr_row, 0 },
+      ["end"] = { curr_row, 100 },
+    },
+  })
+end, { desc = "Code Action on Line" })
+vim.keymap.set("n", "<leader>ll", vim.lsp.codelens.run, { desc = "LSP CodeLens" })
+vim.keymap.set("n", "<leader>lL", vim.lsp.codelens.refresh, { desc = "Refresh CodeLens" })
+vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "LSP Info" })
+vim.keymap.set("n", "<leader>lS", "<cmd>LspStart<cr>", { desc = "LSP Start" })
+vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "LSP Diag" })
+vim.keymap.set("n", "<leader>lf", require("lazyvim.plugins.lsp.format").format, { desc = "LSP Format" })
+vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "LSP Rename" })
