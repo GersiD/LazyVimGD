@@ -2,6 +2,8 @@ return {
   "akinsho/toggleterm.nvim",
   keys = {
     { "<leader>tf", "<cmd>ToggleTerm<cr>", desc = "Float Term" },
+    { "<leader>tb" },
+    { "<leader>td" },
   },
   cmd = "ToggleTerm",
   opts = {
