@@ -9,6 +9,7 @@ require("lspconfig.server_configurations.texlab").default_config.settings = {
 require("lspconfig.server_configurations.ltex").default_config.settings = {
   ltex = { checkFrequency = "save" },
 }
+-- TODO: setup omni completion for latex
 return {
   "lervag/vimtex",
   lazy = false,
