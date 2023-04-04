@@ -27,4 +27,3 @@ vim.opt.timeoutlen = 300
 vim.opt.updatetime = 1000
 
 vim.opt.conceallevel = 0
-vim.loader.enable()
