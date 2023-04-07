@@ -2,7 +2,6 @@
 return {
   {
     "rose-pine/neovim",
-    keys = { "<space>uC" },
     config = function()
       require("rose-pine").setup({
         --- @usage 'auto'|'main'|'moon'|'dawn'
@@ -15,7 +14,6 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
-    keys = { "<space>uC" },
     opts = {
       compile = false, -- enable compiling the colorscheme
       undercurl = true, -- enable undercurls
@@ -41,7 +39,6 @@ return {
   },
   {
     "folke/tokyonight.nvim",
-    keys = { "<space>uC" },
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
@@ -78,12 +75,11 @@ return {
   },
   {
     "catppuccin/nvim",
-    keys = { "<space>uC" },
     config = function()
       require("catppuccin").setup({ transparent_background = false, no_italic = true })
     end,
   },
-  { "EdenEast/nightfox.nvim", keys = { "<space>uC" } },
+  { "EdenEast/nightfox.nvim" },
   -- {
   --   "folke/drop.nvim",
   --   event = "UIEnter",
@@ -96,5 +92,5 @@ return {
   --     })
 
   -- },
-  { "sainnhe/everforest", keys = { "<space>uC" } },
+  { "sainnhe/everforest" },
 }
