@@ -2,15 +2,17 @@
 return {
   "mfussenegger/nvim-jdtls", -- load jdtls on module
   ft = { "java" },
-  config = function()
-    local config = {
-      cmd = { "jdtls" },
-    }
-    require("lspconfig.server_configurations.jdtls").default_config.cmd = config.cmd
-    require("lspconfig.server_configurations.jdtls").default_config.root_dir = function(fname)
-      return require("jdtls.setup").find_root({ "build.gradle.kts", ".git", ".gradle", "gradle.properties" }, fname)
-    end
-    require("jdtls").start_or_attach(config)
+  init = function()
+    vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = "*.java",
+      callback = function()
+        local config = {
+          cmd = { "jdtls" },
+          root_dir = require("jdtls.setup").find_root({ "build.gradle.kts", ".git", ".gradle", "gradle.properties" }),
+        }
+        require("jdtls").start_or_attach(config)
+      end
+    })
   end,
 }
 
