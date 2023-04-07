@@ -23,6 +23,9 @@ return {
           enable = true,
         },
       },
+      runnables = {
+        use_telescope = true,
+      },
       tools = {
         runnables = {
           use_telescope = true,
