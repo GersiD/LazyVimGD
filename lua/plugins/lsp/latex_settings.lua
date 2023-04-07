@@ -1,8 +1,11 @@
 require("lspconfig.server_configurations.texlab").default_config.settings = {
   texlab = {
     chktex = {
-      onEdit = false,
+      -- onEdit = false, -- default value
       onOpenAndSave = true,
+    },
+    latexindent = {
+      modifyLineBreaks = true,
     },
   },
 }
