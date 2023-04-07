@@ -5,7 +5,7 @@ return {
     table.insert(opts.sections.lualine_x, { -- Lsp server name .
       function()
         local msg = ""
-        local clients = vim.lsp.get_active_clients()
+        local clients = vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf() })
         if next(clients) == nil then
           return "No Active Lsp"
         end
