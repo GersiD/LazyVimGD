@@ -10,7 +10,7 @@ require("lspconfig.server_configurations.texlab").default_config.settings = {
   },
 }
 require("lspconfig.server_configurations.ltex").default_config.settings = {
-  ltex = { checkFrequency = "save" },
+  ltex = { checkFrequency = "save", language = "en-US", diagnosticSeverity = "hint" },
 }
 -- TODO: setup omni completion for latex
 return {
