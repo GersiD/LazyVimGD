@@ -21,5 +21,22 @@ return {
       -- icon = " LSP:",
       -- color = { fg = "#ffffff", gui = "bold" },
     })
+    -- fetch status of copilot_lua
+    -- table.insert(opts.sections.lualine_x, {
+    --   function()
+    --     local client = vim.lsp.get_active_clients({ name = "copilot" })[1]
+    --     if client == nil or vim.tbl_isempty(client.requests) then
+    --       return ""
+    --     end
+    --
+    --     -- local spinners = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
+    --     -- local ms = vim.loop.hrtime() / 1000000
+    --     -- local frame = math.floor(ms / 120) % #spinners
+    --     --
+    --     -- return "" .. spinners[frame + 1]
+    --     return ""
+    --   end,
+    --   color = { fg = "#2ac3de" },
+    -- })
   end,
 }

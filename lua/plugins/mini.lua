@@ -4,5 +4,5 @@ return {
     { "a", mode = { "x", "o" } },
     { "i", mode = { "x", "o" } },
   },
-  event = false,
+  -- event = false,
 }
