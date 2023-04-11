@@ -26,6 +26,10 @@ vim.api.nvim_set_keymap("v", "<leader>/", "gc", { desc = "Comment Selection" })
 vim.api.nvim_set_keymap("n", "<leader>/", "Vgc", { desc = "Comment Line" })
 vim.api.nvim_set_keymap("n", "q", ":q!<cr>", { desc = "Quit" })
 
+-- Package manager keymaps
+vim.keymap.set("n", "<leader>ps", "<cmd>Lazy<cr>", { desc = "Package Status" })
+vim.keymap.set("n", "<leader>pS", "<cmd>Lazy sync<cr>", { desc = "Package Sync" })
+
 -- LSP keymaps
 vim.keymap.del("n", "<leader>l", {})
 vim.keymap.set("n", "<leader>la", function()
