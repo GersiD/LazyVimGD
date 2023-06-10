@@ -28,6 +28,7 @@ end, { desc = "Python" })
 vim.api.nvim_set_keymap("v", "<leader>/", "gc", { desc = "Comment Selection" })
 vim.api.nvim_set_keymap("n", "<leader>/", "Vgc", { desc = "Comment Line" })
 vim.api.nvim_set_keymap("n", "q", ":q!<cr>", { desc = "Quit" })
+vim.api.nvim_set_keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Quit" })
 
 -- Package manager keymaps
 vim.keymap.set("n", "<leader>ps", "<cmd>Lazy<cr>", { desc = "Package Status" })
