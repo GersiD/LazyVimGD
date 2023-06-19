@@ -21,10 +21,14 @@ end, { desc = "Float Disk Usage" })
 vim.keymap.set("n", "<leader>tf", function()
   require("config.utils.terminals").float()
 end, { desc = "Float" })
+vim.keymap.set("n", "<leader>tp", function()
+  require("config.utils.terminals").python()
+end, { desc = "Python" })
 
 vim.api.nvim_set_keymap("v", "<leader>/", "gc", { desc = "Comment Selection" })
 vim.api.nvim_set_keymap("n", "<leader>/", "Vgc", { desc = "Comment Line" })
 vim.api.nvim_set_keymap("n", "q", ":q!<cr>", { desc = "Quit" })
+vim.api.nvim_set_keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Quit" })
 
 -- Package manager keymaps
 vim.keymap.set("n", "<leader>ps", "<cmd>Lazy<cr>", { desc = "Package Status" })
