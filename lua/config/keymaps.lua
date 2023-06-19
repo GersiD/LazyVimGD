@@ -48,3 +48,15 @@ vim.keymap.set("n", "<leader>lS", "<cmd>LspStart<cr>", { desc = "LSP Start" })
 vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "LSP Diag" })
 vim.keymap.set("n", "<leader>lf", require("lazyvim.plugins.lsp.format").format, { desc = "LSP Format" })
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "LSP Rename" })
+
+-- Git Keymaps
+vim.keymap.set("n", "<leader>gd", function()
+  local view = require("diffview.lib").get_current_view()
+  if view then
+    -- Current tabpage is a Diffview; close it
+    vim.cmd(":DiffviewClose")
+  else
+    -- No open Diffview exists: open a new one
+    vim.cmd(":DiffviewOpen")
+  end
+end, { desc = "Diffview" })
