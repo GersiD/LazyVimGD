@@ -93,4 +93,12 @@ return {
 
   -- },
   { "sainnhe/everforest" },
+
+  -- Set LazyVim colorscheme
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "habamax",
+    },
+  },
 }
