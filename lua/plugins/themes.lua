@@ -42,7 +42,7 @@ return {
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
-      -- style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
+      style = "storm", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
       -- terminal_colors = true, -- Configure the colors used when opening a `:terminal` in Neovim
       -- no_italic = true, -- Disable italic comments, keywords, etc.
       -- transparent = true, -- Enable transparent background
@@ -98,7 +98,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "habamax",
+      colorscheme = "tokyonight",
     },
   },
 }
