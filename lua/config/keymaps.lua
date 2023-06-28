@@ -64,7 +64,3 @@ vim.keymap.set("n", "<leader>gd", function()
     vim.cmd(":DiffviewOpen")
   end
 end, { desc = "Diffview" })
-
--- Leap keymaps
-vim.keymap.set("n", "f", "<Plug>(leap-forward-to)", { desc = "leap forward" })
-vim.keymap.set("n", "F", "<Plug>(leap-backward-to)", { desc = "leap forward" })
