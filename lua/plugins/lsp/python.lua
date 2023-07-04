@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     else
       dap.adapters.python = {
         type = "executable",
-        command = "C:/Users/gersi/.virtualenvs/debugpy/Scripts/python.exe",
+        command = "python",
         args = { "-m", "debugpy.adapter" },
       }
       dap.configurations.python = {
