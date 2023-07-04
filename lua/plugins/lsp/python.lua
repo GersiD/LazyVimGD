@@ -71,5 +71,4 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   end,
 })
 
---TODO: - add debug adapter for python
 return {}
