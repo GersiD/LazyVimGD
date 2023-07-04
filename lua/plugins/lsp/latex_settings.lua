@@ -12,7 +12,17 @@ require("lspconfig.server_configurations.texlab").default_config.settings = {
 require("lspconfig.server_configurations.ltex").default_config.settings = {
   ltex = { checkFrequency = "save", language = "en-US", diagnosticSeverity = "hint" },
 }
--- TODO: setup omni completion for latex
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = "*.tex",
+  callback = function()
+    -- Use omnifunc for completion
+    local cmp = require("cmp")
+    local sources = cmp.get_config().sources
+    local addOmni = { name = "omni", priority = 750 }
+    vim.list_extend(sources, { addOmni })
+    cmp.setup.buffer({ sources = sources })
+  end,
+})
 return {
   "lervag/vimtex",
   lazy = false,
