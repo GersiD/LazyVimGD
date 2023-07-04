@@ -5,13 +5,14 @@ return {
   init = function()
     vim.api.nvim_create_autocmd("BufEnter", {
       pattern = "*.java",
+      desc = "Setup Java LSP",
       callback = function()
         local config = {
           cmd = { "jdtls" },
           root_dir = require("jdtls.setup").find_root({ "build.gradle.kts", ".git", ".gradle", "gradle.properties" }),
         }
         require("jdtls").start_or_attach(config)
-      end
+      end,
     })
   end,
 }

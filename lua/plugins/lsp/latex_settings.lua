@@ -14,6 +14,7 @@ require("lspconfig.server_configurations.ltex").default_config.settings = {
 }
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   pattern = "*.tex",
+  desc = "setup_omni",
   callback = function()
     -- Use omnifunc for completion
     local cmp = require("cmp")
