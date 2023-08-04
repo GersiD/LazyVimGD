@@ -56,6 +56,23 @@ vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "LSP Diag"
 vim.keymap.set("n", "<leader>lf", require("lazyvim.plugins.lsp.format").format, { desc = "LSP Format" })
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "LSP Rename" })
 
+-- DAP Keymaps
+vim.keymap.set("n", "<F7>", function()
+  require("dap").step_out()
+end, { desc = "DAP Step Out" })
+vim.keymap.set("n", "<F8>", function()
+  require("dap").continue()
+end, { desc = "DAP Continue" })
+vim.keymap.set("n", "<F9>", function()
+  require("dap").step_into()
+end, { desc = "DAP Step Into" })
+vim.keymap.set("n", "<F10>", function()
+  require("dap").step_over()
+end, { desc = "DAP Step Over" })
+vim.keymap.set("n", "<C-M-K>", function()
+  require("dapui").eval()
+end, { desc = "DAP Eval" })
+
 -- Git Keymaps
 vim.keymap.set("n", "<leader>gd", function()
   local view = require("diffview.lib").get_current_view()
@@ -67,3 +84,15 @@ vim.keymap.set("n", "<leader>gd", function()
     vim.cmd(":DiffviewOpen")
   end
 end, { desc = "Diffview" })
+
+-- Buffer keymaps
+-- Delete all buffers except current
+vim.keymap.set("n", "<leader>bD", function()
+  require("noice").notify("Deleting all buffers except current", "info", { timeout = 500 })
+  local current = vim.api.nvim_get_current_buf()
+  for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
+    if buffer ~= current then
+      vim.api.nvim_buf_delete(buffer, {})
+    end
+  end
+end, { desc = "Delete all buf except current" })
