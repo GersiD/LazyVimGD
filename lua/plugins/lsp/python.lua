@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
           type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
           request = "launch",
           name = "Launch file",
+          justMyCode = false,
           -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
 
           program = "${file}", -- This configuration will launch the current file if used.
@@ -50,6 +51,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
           type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
           request = "launch",
           name = "Launch file",
+          justMyCode = false,
           -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
 
           program = "${file}", -- This configuration will launch the current file if used.
