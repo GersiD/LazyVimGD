@@ -1,6 +1,6 @@
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new({ cmd = "lazygit", direction = "float" })
-local bottom = Terminal:new({ cmd = "bottom", direction = "float" })
+local bottom = Terminal:new({ cmd = "btop", direction = "float" })
 local gdu = Terminal:new({ cmd = "gdu" })
 local float_term = Terminal:new({ cmd = "zsh" })
 local python_term = Terminal:new({ cmd = "python3" })
