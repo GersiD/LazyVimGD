@@ -27,7 +27,7 @@ end, { desc = "Python" })
 
 vim.api.nvim_set_keymap("v", "<leader>/", "gc", { desc = "Comment Selection" })
 vim.api.nvim_set_keymap("n", "<leader>/", "Vgc", { desc = "Comment Line" })
-vim.api.nvim_set_keymap("n", "q", ":quitall<cr>", { desc = "Quit" })
+vim.keymap.set("n", "q", "<C-w>q", { desc = "Quit", remap = true })
 vim.api.nvim_set_keymap("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Quit" })
 vim.keymap.set("t", "<C-q>", function()
   require("config.utils.terminals").close_all()
@@ -55,6 +55,10 @@ vim.keymap.set("n", "<leader>lS", "<cmd>LspStart<cr>", { desc = "LSP Start" })
 vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "LSP Diag" })
 vim.keymap.set("n", "<leader>lf", require("lazyvim.plugins.lsp.format").format, { desc = "LSP Format" })
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "LSP Rename" })
+vim.keymap.set("n", "<leader>`", function()
+  local cmd = vim.fn.input("Run command: ")
+  require("config.utils.terminals").run(cmd)
+end, { desc = "Run Command" })
 
 -- DAP Keymaps
 vim.keymap.set("n", "<F7>", function()
@@ -96,3 +100,8 @@ vim.keymap.set("n", "<leader>bD", function()
     end
   end
 end, { desc = "Delete all buf except current" })
+vim.keymap.set("n", "<C-s>", function()
+  local cur_buf_name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":~:.")
+  require("noice").notify("  " .. cur_buf_name, "info", { timeout = 500 })
+  vim.cmd(":w")
+end, { desc = "Save" })

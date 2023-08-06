@@ -38,4 +38,21 @@ return {
     python_term:toggle()
   end,
   close_all = close_all,
+  run = function(command)
+    require("toggleterm.terminal").Terminal
+      :new({
+        cmd = command,
+        hidden = true,
+        direction = "float",
+        close_on_exit = false,
+        on_exit = function()
+          -- enter normal mode
+          vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", false, false, true), "n", false)
+        end,
+        float_opts = {
+          border = "curved",
+        },
+      })
+      :toggle()
+  end,
 }
