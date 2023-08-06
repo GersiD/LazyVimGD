@@ -1,18 +1,10 @@
 return {
   "hrsh7th/nvim-cmp",
-  version = false, -- last release is way too old
-  event = "InsertEnter",
-  dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "saadparwaiz1/cmp_luasnip",
-  },
   opts = function()
     local cmp = require("cmp")
     return {
       completion = {
-        completeopt = "menu,menuone,noinsert",
+        completeopt = "menu,menuone,preview,longest,noinsert",
       },
       snippet = {
         expand = function(args)
@@ -22,21 +14,22 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        ["<C-d>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        -- ["<S-CR>"] = cmp.mapping.confirm({
-        --   behavior = cmp.ConfirmBehavior.Replace,
-        --   select = true,
-        -- }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
       }),
+      -- Only use buffer source if LSP is not available (e.g. inside a string context)
       sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "buffer" },
         { name = "path" },
+      }, {
+        { name = "buffer" },
       }),
       formatting = {
-        fields = { "kind", "abbr", "menu" },
+        -- fields = { "kind", "abbr", "menu" },
+        fields = { "abbr", "kind", "menu" },
         format = function(_, item)
           local icons = require("lazyvim.config").icons.kinds
           if icons[item.kind] then
