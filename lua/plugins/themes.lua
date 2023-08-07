@@ -93,6 +93,8 @@ return {
 
   -- },
   { "sainnhe/everforest" },
+  { "sainnhe/gruvbox-material" },
+  { "sainnhe/edge" },
 
   -- Set LazyVim colorscheme
   {

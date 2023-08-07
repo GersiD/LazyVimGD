@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 vim.keymap.set("n", "<A-j>", "15j", {})
 vim.keymap.set("n", "<A-k>", "15k", {})
+vim.keymap.set("n", "<cr>", "ciw", { remap = true, desc = "Change word" })
 vim.keymap.set("n", "<TAB>", "<cmd>BufferLineCycleNext<cr>", { desc = "Prev buffer" })
 vim.keymap.set("n", "<S-TAB>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>hh", "<cmd>GrapplePopup tags<cr>", { desc = "Harpoon View" })
