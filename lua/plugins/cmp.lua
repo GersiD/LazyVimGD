@@ -11,6 +11,10 @@ return {
           require("luasnip").lsp_expand(args.body)
         end,
       },
+      window = {
+        completion = cmp.config.window.bordered({}),
+        documentation = cmp.config.window.bordered({}),
+      },
       mapping = cmp.mapping.preset.insert({
         ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -21,8 +25,8 @@ return {
       }),
       -- Only use buffer source if LSP is not available (e.g. inside a string context)
       sources = cmp.config.sources({
-        { name = "nvim_lsp" },
-        { name = "luasnip" },
+        { name = "nvim_lsp", priority = 100 },
+        { name = "luasnip", priority = 90 },
         { name = "path" },
       }, {
         { name = "buffer" },
