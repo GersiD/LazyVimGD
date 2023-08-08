@@ -76,31 +76,32 @@ return {
   {
     "catppuccin/nvim",
     config = function()
-      require("catppuccin").setup({ transparent_background = false, no_italic = true })
+      require("catppuccin").setup({
+        transparent_background = false,
+        no_italic = true,
+        integrations = {
+          notify = true,
+          mini = true,
+          leap = true,
+          aerial = true,
+          telescope = true,
+          fidget = true,
+          -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+        },
+      })
     end,
   },
   { "EdenEast/nightfox.nvim" },
-  -- {
-  --   "folke/drop.nvim",
-  --   event = "UIEnter",
-  --   config = function()
-  --     require("drop").setup({
-  --       screensaver = false,
-  --       theme = "leaves",
-  --       max = 60,
-  --       interval = 150,
-  --     })
-
-  -- },
   { "sainnhe/everforest" },
   { "sainnhe/gruvbox-material" },
   { "sainnhe/edge" },
+  { "projekt0n/github-nvim-theme" },
 
-  -- Set LazyVim colorscheme
+  -- Set LazyVim ColorScheme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "catppuccin",
     },
   },
 }
