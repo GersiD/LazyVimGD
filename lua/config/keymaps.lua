@@ -74,8 +74,13 @@ end, { desc = "DAP Step Into" })
 vim.keymap.set("n", "<F10>", function()
   require("dap").step_over()
 end, { desc = "DAP Step Over" })
-vim.keymap.set("n", "<C-M-K>", function()
-  require("dapui").eval()
+vim.keymap.set("n", "K", function()
+  local dap_open = require("dap").session() ~= nil
+  if dap_open then
+    require("dapui").eval()
+  else
+    vim.lsp.buf.hover()
+  end
 end, { desc = "DAP Eval" })
 
 -- Git Keymaps
