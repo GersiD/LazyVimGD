@@ -11,7 +11,11 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
     -- Python Specific Keymaps
     -- run current file in terminal
     vim.keymap.set("n", "<leader>`", function()
-      require("config.utils.terminals").run("time python3" .. " " .. vim.fn.expand("%"))
+      if jit.os == "Windows" then
+        require("config.utils.terminals").run("python" .. " " .. vim.fn.expand("%"))
+      else
+        require("config.utils.terminals").run("time python3" .. " " .. vim.fn.expand("%"))
+      end
     end, { desc = "Run Python File" })
 
     local dap = require("dap")

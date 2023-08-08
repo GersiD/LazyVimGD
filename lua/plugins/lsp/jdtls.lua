@@ -7,6 +7,9 @@ return {
       pattern = "*.java",
       desc = "Setup Java LSP",
       callback = function()
+        vim.keymap.set("n", "<leader>`", function()
+          require("config.utils.terminals").run("gradle test")
+        end, { desc = "Gradle Test" })
         local config = {
           cmd = { "jdtls" },
           root_dir = require("jdtls.setup").find_root({ "build.gradle.kts", ".git", ".gradle", "gradle.properties" }),
