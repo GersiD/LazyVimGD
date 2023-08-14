@@ -20,13 +20,16 @@ require("lspconfig.server_configurations.rust_analyzer").default_config.settings
 return {
   "simrat39/rust-tools.nvim",
   ft = { "rust", "rs" },
-  config = function()
+  opts = function()
     local rt = require("rust-tools")
-    rt.setup({
+    vim.keymap.set("n", "<leader>`", function()
+      require("config.utils.terminals").run("time cargo run")
+    end, { desc = "Run Rust Proj" })
+    return {
       server = {
         on_attach = function(_, bufnr)
-          vim.keymap.set("n", "K", "<cmd>RustHoverActions<cr>", { buffer = bufnr })
-          vim.keymap.set("n", "<leader>la", rt.code_action_group.code_action_group, { buffer = bufnr })
+          vim.keymap.set("n", "K", "<cmd>RustHoverActions<cr>", { desc = "RUSTT", buffer = bufnr })
+          vim.keymap.set("n", "<leader>la", rt.code_action_group.code_action_group, { desc = "LARSS", buffer = bufnr })
         end,
       },
       runnables = {
@@ -37,6 +40,6 @@ return {
           use_telescope = true,
         },
       },
-    })
+    }
   end,
 }
