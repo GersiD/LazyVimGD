@@ -39,6 +39,9 @@ return {
   end,
   close_all = close_all,
   run = function(command)
+    if command == nil or command == "" then
+      return
+    end
     require("toggleterm.terminal").Terminal
       :new({
         cmd = command,
