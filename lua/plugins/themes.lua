@@ -96,12 +96,29 @@ return {
   { "sainnhe/gruvbox-material" },
   { "sainnhe/edge" },
   { "projekt0n/github-nvim-theme" },
-
+  {
+    "AlexvZyl/nordic.nvim",
+    opts = function()
+      local palette = require("nordic.colors")
+      return {
+        override = {
+          TelescopePromptTitle = {
+            fg = palette.white1,
+            bg = palette.green.dim,
+            italic = true,
+            underline = true,
+            sp = palette.yellow.dim,
+            undercurl = false,
+          },
+        },
+      }
+    end,
+  },
   -- Set LazyVim ColorScheme
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "tokyonight-moon",
     },
   },
 }
