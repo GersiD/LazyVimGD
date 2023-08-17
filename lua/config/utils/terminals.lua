@@ -38,6 +38,7 @@ return {
     python_term:toggle()
   end,
   close_all = close_all,
+  ---@param command string
   run = function(command)
     if command == nil or command == "" then
       return
