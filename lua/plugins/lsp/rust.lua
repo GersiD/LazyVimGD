@@ -25,6 +25,9 @@ return {
     vim.keymap.set("n", "<leader>`", function()
       require("config.utils.terminals").run("time cargo run")
     end, { desc = "Run Rust Proj" })
+    require("null-ls").register({
+      require("null-ls").builtins.formatting.rustfmt,
+    })
     return {
       server = {
         on_attach = function(_, bufnr)
