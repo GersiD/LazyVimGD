@@ -103,10 +103,10 @@ return {
       return {
         override = {
           TelescopePromptTitle = {
-            fg = palette.white1,
+            -- fg = palette.white1,
             bg = palette.green.dim,
             italic = true,
-            underline = true,
+            underline = false,
             sp = palette.yellow.dim,
             undercurl = false,
           },
