@@ -118,6 +118,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
+      ---@type string|fun()
       colorscheme = "tokyonight-moon",
     },
   },
