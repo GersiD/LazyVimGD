@@ -1,5 +1,12 @@
 return {
   "hrsh7th/nvim-cmp",
+  dependencies = {
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-path",
+    "L3MON4D3/LuaSnip",
+    "hrsh7th/cmp-emoji",
+  },
   opts = function()
     local cmp = require("cmp")
     return {
@@ -28,6 +35,7 @@ return {
         { name = "nvim_lsp", priority = 100 },
         { name = "luasnip", priority = 90 },
         { name = "path" },
+        { name = "emoji" },
       }, {
         { name = "buffer" },
       }),
