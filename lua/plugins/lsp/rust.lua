@@ -17,17 +17,24 @@ require("lspconfig.server_configurations.rust_analyzer").default_config.settings
   },
 }
 
-return {
-  "simrat39/rust-tools.nvim",
-  ft = { "rust", "rs" },
-  opts = function()
-    local rt = require("rust-tools")
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = "*.rs",
+  desc = "Setup Rust LSP",
+  callback = function(ev)
     vim.keymap.set("n", "<leader>`", function()
       require("config.utils.terminals").run("time cargo run")
     end, { desc = "Run Rust Proj" })
     require("null-ls").register({
       require("null-ls").builtins.formatting.rustfmt,
     })
+  end,
+})
+
+return {
+  "simrat39/rust-tools.nvim",
+  ft = { "rust", "rs" },
+  opts = function()
+    local rt = require("rust-tools")
     return {
       server = {
         on_attach = function(_, bufnr)
