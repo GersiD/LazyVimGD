@@ -22,11 +22,16 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   desc = "Setup Rust LSP",
   callback = function(ev)
     vim.keymap.set("n", "<leader>`", function()
-      require("config.utils.terminals").run("time cargo run")
+      require("config.utils.terminals").run("time cargo run", { direction = "horizontal" })
     end, { desc = "Run Rust Proj" })
+    vim.keymap.set("n", "<leader>lt", function()
+      require("config.utils.terminals").run("time cargo test")
+    end, { desc = "LSP Test" })
     require("null-ls").register({
       require("null-ls").builtins.formatting.rustfmt,
     })
+    -- set timout to nil
+    require("null-ls.config").get().default_timeout = 10000
   end,
 })
 

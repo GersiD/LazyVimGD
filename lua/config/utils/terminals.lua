@@ -39,7 +39,7 @@ return {
   end,
   close_all = close_all,
   ---@param command string
-  run = function(command)
+  run = function(command, opts)
     if command == nil or command == "" then
       return
     end
@@ -47,7 +47,7 @@ return {
       :new({
         cmd = command,
         hidden = true,
-        direction = "float",
+        direction = opts and opts.direction or "float",
         close_on_exit = false,
         on_exit = function()
           -- enter normal mode
