@@ -40,7 +40,9 @@ vim.g.perl_host_skip_check = true
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 
+-- 1000 is the default (1 second)
 vim.opt.timeoutlen = 300
-vim.opt.updatetime = 1000
+-- 4000 is the default (4 seconds)
+vim.opt.updatetime = 10000
 
 vim.opt.conceallevel = 0
