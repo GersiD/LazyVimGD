@@ -75,9 +75,11 @@ return {
   },
   {
     "catppuccin/nvim",
+    name = "catppuccin",
     config = function()
       require("catppuccin").setup({
         transparent_background = false,
+        flavour = "macchiato",
         no_italic = true,
         integrations = {
           notify = true,
@@ -119,7 +121,7 @@ return {
     "LazyVim/LazyVim",
     opts = {
       ---@type string|fun()
-      colorscheme = "tokyonight-moon",
+      colorscheme = "catppuccin",
     },
   },
 }

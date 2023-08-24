@@ -6,7 +6,7 @@ return {
       function()
         local themes = require("plugins.themes")
         for _, theme in ipairs(themes) do
-          local name = string.match(theme[1], "([^/]+)$")
+          local name = theme.name and theme.name or string.match(theme[1], "([^/]+)$")
           require("lazy").load({ plugins = name })
         end
         require("telescope.builtin").colorscheme({ treesitter = false, enable_preview = true })
