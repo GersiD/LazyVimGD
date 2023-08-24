@@ -78,7 +78,6 @@ return {
     name = "catppuccin",
     config = function()
       require("catppuccin").setup({
-        transparent_background = false,
         flavour = "macchiato",
         no_italic = true,
         integrations = {
@@ -88,6 +87,9 @@ return {
           aerial = true,
           telescope = true,
           fidget = true,
+          flash = true,
+          neotree = true,
+          which_key = true,
           -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
         },
       })
