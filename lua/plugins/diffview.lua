@@ -2,6 +2,7 @@ return {
   "sindrets/diffview.nvim",
   cmd = "DiffviewOpen",
   opts = {
+    enhanced_diff_hl = true,
     view = {
       default = {
         layout = "diff2_vertical",
