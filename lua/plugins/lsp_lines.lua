@@ -6,6 +6,6 @@ return {
       underline = true,
       virtual_text = false,
     })
-    require("lsp_lines").setup({})
+    require("lsp_lines").setup()
   end,
 }
