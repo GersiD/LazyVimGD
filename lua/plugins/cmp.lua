@@ -1,12 +1,14 @@
 return {
   "hrsh7th/nvim-cmp",
   dependencies = {
+    "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-path",
     "L3MON4D3/LuaSnip",
     "hrsh7th/cmp-emoji",
   },
+  event = "VimEnter",
   ---@param opts cmp.ConfigSchema
   opts = function(_, opts)
     local cmp = require("cmp")
@@ -34,6 +36,7 @@ return {
     })
     opts.formatting = {
       -- fields = { "kind", "abbr", "menu" },
+      -- fields = { "abbr", "menu", "kind" },
       expandable_indicator = false,
       fields = { "abbr", "kind", "menu" },
       format = function(_, item)
@@ -48,5 +51,50 @@ return {
     opts.experimental = {
       ghost_text = false,
     }
+    local other_mappings = cmp.mapping.preset.cmdline({
+      ["<C-j>"] = {
+        c = function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+          else
+            fallback()
+          end
+        end,
+      },
+      ["<C-k>"] = {
+        c = function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            fallback()
+          end
+        end,
+      },
+      ["<CR>"] = {
+        c = function(fallback)
+          if cmp.visible() then
+            cmp.confirm({ select = true })
+          else
+            fallback()
+          end
+        end,
+      },
+    })
+    -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+    ---@diagnostic disable-next-line: missing-fields
+    cmp.setup.cmdline({ "/", "?" }, {
+      mapping = other_mappings,
+      sources = {
+        { name = "buffer" },
+      },
+    })
+    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+    ---@diagnostic disable-next-line: missing-fields
+    cmp.setup.cmdline(":", {
+      mapping = other_mappings,
+      sources = cmp.config.sources({
+        { name = "cmdline" },
+      }),
+    })
   end,
 }
