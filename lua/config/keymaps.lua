@@ -98,7 +98,7 @@ end, { desc = "Diffview" })
 -- Buffer keymaps
 -- Delete all buffers except current
 vim.keymap.set("n", "<leader>bD", function()
-  require("noice").notify("Deleting all buffers except current", "info", { timeout = 500 })
+  vim.notify("Deleting all buffers except current", "info", { timeout = 500 })
   local current = vim.api.nvim_get_current_buf()
   for _, buffer in ipairs(vim.api.nvim_list_bufs()) do
     if buffer ~= current then
@@ -108,6 +108,6 @@ vim.keymap.set("n", "<leader>bD", function()
 end, { desc = "Delete all buf except current" })
 vim.keymap.set("n", "<C-s>", function()
   local cur_buf_name = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":~:.")
-  require("noice").notify("  " .. cur_buf_name, "info", { timeout = 500 })
+  vim.notify("  " .. cur_buf_name, "info", { timeout = 500 })
   vim.cmd(":w")
 end, { desc = "Save" })
