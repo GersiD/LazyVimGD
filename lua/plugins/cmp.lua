@@ -12,7 +12,7 @@ return {
   ---@param opts cmp.ConfigSchema
   opts = function(_, opts)
     local cmp = require("cmp")
-    opts.completion.completeopt = "menu,menuone,preview,noinsert"
+    opts.completion.completeopt = "menu,menuone,preview,longest"
     opts.window = {
       completion = cmp.config.window.bordered({}),
       documentation = cmp.config.window.bordered({}),
