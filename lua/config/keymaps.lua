@@ -62,8 +62,18 @@ vim.keymap.set("n", "<leader>`", function()
   require("config.utils.terminals").run(cmd)
 end, { desc = "Run Command" })
 vim.keymap.set("n", "gt", function()
-  require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
+  require("telescope.builtin").lsp_type_definitions(
+    require("telescope.themes").get_cursor({ jump_type = "vsplit", reuse_win = true })
+  )
 end, { desc = "LSP Type Definitions" })
+vim.keymap.set("n", "<leader>fs", function()
+  require("telescope.builtin").treesitter()
+end, { desc = "Find Symbols" })
+vim.keymap.set("n", "gi", function()
+  require("telescope.builtin").lsp_implementations(
+    require("telescope.themes").get_cursor({ jump_type = "vsplit", reuse_win = true })
+  )
+end, { desc = "LSP Implementations" })
 
 -- DAP Keymaps
 vim.keymap.set("n", "<F7>", function()
