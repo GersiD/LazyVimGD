@@ -61,6 +61,9 @@ vim.keymap.set("n", "<leader>`", function()
   local cmd = vim.fn.input("Run command: ")
   require("config.utils.terminals").run(cmd)
 end, { desc = "Run Command" })
+vim.keymap.set("n", "gt", function()
+  require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
+end, { desc = "LSP Type Definitions" })
 
 -- DAP Keymaps
 vim.keymap.set("n", "<F7>", function()
