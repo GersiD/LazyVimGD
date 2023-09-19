@@ -4,7 +4,7 @@ return {
     setup = {
       clangd = function(_, opts)
         opts.capabilities.offsetEncoding = { "utf-16" }
-        vim.api.nvim_create_autocmd("BufEnter", {
+        vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
           pattern = { "*.cpp", "*.hpp" },
           desc = "Setup C++ LSP",
           callback = function()
@@ -17,7 +17,6 @@ return {
               require("config.utils.terminals").run(command, { direction = "horizontal" })
             end, { desc = "Computer Graphics" })
           end,
-          once = true,
         })
       end,
     },
