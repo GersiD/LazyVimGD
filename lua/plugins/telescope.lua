@@ -71,6 +71,9 @@ return {
           },
           n = {
             ["q"] = require("telescope.actions").close,
+            ["v"] = require("telescope.actions").select_vertical,
+            ["h"] = require("telescope.actions").select_horizontal,
+            ["t"] = require("telescope.actions").select_tab,
           },
         },
         preview = {
