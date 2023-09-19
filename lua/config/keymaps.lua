@@ -62,9 +62,16 @@ vim.keymap.set("n", "<leader>`", function()
   require("config.utils.terminals").run(cmd)
 end, { desc = "Run Command" })
 vim.keymap.set("n", "gt", function()
-  require("telescope.builtin").lsp_type_definitions(
-    require("telescope.themes").get_cursor({ jump_type = "vsplit", reuse_win = true })
-  )
+  -- I want <CR> to open the selection in a vertical split
+  require("telescope.builtin").lsp_type_definitions(require("telescope.themes").get_cursor({
+    jump_type = "vsplit",
+    reuse_win = true,
+    initial_mode = "normal",
+    attach_mappings = function(_, map)
+      map("n", "<CR>", require("telescope.actions").select_vertical)
+      return true
+    end,
+  }))
 end, { desc = "LSP Type Definitions" })
 vim.keymap.set("n", "<leader>fs", function()
   require("telescope.builtin").treesitter()
