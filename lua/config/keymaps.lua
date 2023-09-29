@@ -57,10 +57,13 @@ vim.keymap.set("n", "<leader>lS", "<cmd>LspStart<cr>", { desc = "LSP Start" })
 vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "LSP Diag" })
 vim.keymap.set("n", "<leader>lf", require("lazyvim.plugins.lsp.format").format, { desc = "LSP Format" })
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "LSP Rename" })
-vim.keymap.set("n", "<leader>`", function()
-  local cmd = vim.fn.input("Run command: ")
-  require("config.utils.terminals").run(cmd)
-end, { desc = "Run Command" })
+-- check if <leader>` is already mapped
+if vim.api.nvim_get_keymap("n")["<leader>`"] == nil then
+  vim.keymap.set("n", "<leader>`", function()
+    local cmd = vim.fn.input("Run command: ")
+    require("config.utils.terminals").run(cmd)
+  end, { desc = "Run Command" })
+end
 vim.keymap.set("n", "gt", function()
   -- I want <CR> to open the selection in a vertical split
   require("telescope.builtin").lsp_type_definitions(require("telescope.themes").get_cursor({
