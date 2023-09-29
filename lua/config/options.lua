@@ -10,7 +10,7 @@ vim.g.python3_host_skip_check = true
 if jit.os == "Windows" then
   vim.g.python3_host_prog = "~/scoop/apps/python/current/python.exe"
   vim.g.clipboard = {
-    name = "win32yank", -- set clipboard provider
+    name = "win32yank",                  -- set clipboard provider
     copy = {
       ["+"] = "win32yank.exe -i --crlf", -- copy to clipboard
       ["*"] = "win32yank.exe -i --crlf", -- copy to clipboard
