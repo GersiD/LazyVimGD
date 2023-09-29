@@ -35,15 +35,15 @@ return {
       { name = "buffer" },
     })
     opts.formatting = {
-      -- fields = { "kind", "abbr", "menu" },
+      fields = { "kind", "abbr", "menu" },
       -- fields = { "abbr", "menu", "kind" },
       expandable_indicator = false,
-      fields = { "abbr", "kind", "menu" },
+      -- fields = { "abbr", "kind", "menu" },
       format = function(_, item)
         local icons = require("lazyvim.config").icons.kinds
         if icons[item.kind] then
           item.menu = item.kind
-          item.kind = icons[item.kind]
+          item.kind = icons[item.kind] .. " │"
         end
         return item
       end,
