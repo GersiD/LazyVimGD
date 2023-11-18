@@ -1,4 +1,4 @@
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
+vim.api.nvim_create_autocmd({ "BufReadPre" }, {
   pattern = { "*.cpp", "*.hpp" },
   desc = "Setup C++ LSP",
   callback = function()
