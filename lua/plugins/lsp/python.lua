@@ -10,7 +10,7 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 
     -- Python Specific Keymaps
     -- run current file in terminal
-    vim.keymap.set("n", "<leader>`", function()
+    vim.keymap.set("n", "<leader><esc>", function()
       if jit.os == "Windows" then
         require("config.utils.terminals").run("python" .. " " .. vim.fn.expand("%"))
       else

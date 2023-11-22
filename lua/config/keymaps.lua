@@ -57,9 +57,9 @@ vim.keymap.set("n", "<leader>lS", "<cmd>LspStart<cr>", { desc = "LSP Start" })
 vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "LSP Diag" })
 vim.keymap.set("n", "<leader>lf", require("lazyvim.plugins.lsp.format").format, { desc = "LSP Format" })
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "LSP Rename" })
--- check if <leader>` is already mapped
-if vim.api.nvim_get_keymap("n")["<leader>`"] == nil then
-  vim.keymap.set("n", "<leader>`", function()
+-- check if <leader><esc> is already mapped
+if vim.api.nvim_get_keymap("n")["<leader><esc>"] == nil then
+  vim.keymap.set("n", "<leader><esc>", function()
     local cmd = vim.fn.input("Run command: ")
     require("config.utils.terminals").run(cmd)
   end, { desc = "Run Command" })

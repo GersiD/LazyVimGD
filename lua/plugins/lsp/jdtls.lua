@@ -7,7 +7,7 @@ return {
       pattern = "*.java",
       desc = "Setup Java LSP",
       callback = function()
-        vim.keymap.set("n", "<leader>`", function()
+        vim.keymap.set("n", "<leader><esc>", function()
           require("config.utils.terminals").run("gradle test")
         end, { desc = "Gradle Test" })
         local config = {

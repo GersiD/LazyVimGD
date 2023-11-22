@@ -2,7 +2,7 @@ vim.api.nvim_create_autocmd({ "BufReadPre" }, {
   pattern = { "*.cpp", "*.hpp" },
   desc = "Setup C++ LSP",
   callback = function()
-    vim.keymap.set("n", "<leader>`", function()
+    vim.keymap.set("n", "<leader><esc>", function()
       -- Save the current buffer
       vim.cmd("w")
       -- Read the compile_commands.json file in the current directory
