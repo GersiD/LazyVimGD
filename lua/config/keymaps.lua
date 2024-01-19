@@ -55,7 +55,9 @@ vim.keymap.set("n", "<leader>lL", vim.lsp.codelens.refresh, { desc = "Refresh Co
 vim.keymap.set("n", "<leader>li", "<cmd>LspInfo<cr>", { desc = "LSP Info" })
 vim.keymap.set("n", "<leader>lS", "<cmd>LspStart<cr>", { desc = "LSP Start" })
 vim.keymap.set("n", "<leader>ld", vim.diagnostic.open_float, { desc = "LSP Diag" })
-vim.keymap.set("n", "<leader>lf", require("lazyvim.plugins.lsp.format").format, { desc = "LSP Format" })
+vim.keymap.set("n", "<leader>lf", function()
+  require("lazyvim.util").format()
+end, { desc = "LSP Format" })
 vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, { desc = "LSP Rename" })
 -- check if <leader><esc> is already mapped
 if vim.api.nvim_get_keymap("n")["<leader><esc>"] == nil then
